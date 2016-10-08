@@ -24,3 +24,12 @@ else:
 	i.save(save_file_name)
 
 	print "XKCD"+str(n)+" has been saved successfully"
+
+	ch = raw_input("\nDo you wan to open the image? yes or no\n> ")
+	if str(ch) == "y" or str(ch) == "yes":
+		print "Opening image"
+		i.show()
+	elif str(ch) == "n" or str(ch) == "no":
+		print "Ok"
+	else:
+		print "Invalid input"
