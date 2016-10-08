@@ -1,5 +1,6 @@
 
 import requests
+import sys
 from bs4 import BeautifulSoup
 from PIL import Image
 from io import BytesIO
@@ -7,6 +8,10 @@ from io import BytesIO
 base_url = "http://xkcd.com/"
 
 n = raw_input("Enter the comic number\n> ")
+
+if n.isdigit() == False:
+	print "Input is not a number"
+	sys.exit() 
 
 url = base_url + str(n)
 page = requests.get(url).content
