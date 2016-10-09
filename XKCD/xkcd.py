@@ -1,3 +1,4 @@
+
 import requests
 import sys
 from bs4 import BeautifulSoup
@@ -15,7 +16,7 @@ if n.isdigit() == False:
 url = base_url + str(n)
 page = requests.get(url).content
 soup = BeautifulSoup(page, "lxml")
-if str(soup.title) == "<title>404 - Not Found</title>":
+if soup.title.string == "404 - Not Found":
 	print "Comic not found"
 else:
 	comicImageBlock = soup.find("div",{"id":"comic"})
@@ -30,10 +31,10 @@ else:
 	print "XKCD"+str(n)+" has been saved successfully"
 
 	ch = raw_input("\nDo you wan to open the image? yes or no\n> ")
-	if str(ch) == "y" or str(ch) == "yes":
+	if ch == "y" or ch == "yes":
 		print "Opening image"
 		i.show()
-	elif str(ch) == "n" or str(ch) == "no":
-		print "Ok"
+	elif ch == "n" or ch == "no":
+		exit()
 	else:
 		print "Invalid input"
