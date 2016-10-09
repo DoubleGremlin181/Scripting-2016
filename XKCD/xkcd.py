@@ -30,7 +30,7 @@ else:
 
 	print "XKCD"+str(n)+" has been saved successfully"
 
-	ch = raw_input("\nDo you wan to open the image? yes or no\n> ")
+	ch = raw_input("\nDo you want to open the image? yes or no\n> ")
 	if ch == "y" or ch == "yes":
 		print "Opening image"
 		i.show()
